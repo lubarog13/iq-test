@@ -1,30 +1,33 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <navigation-panel class="navigation"/>
+  <router-view class="router"/>
 </template>
 
+<script>
+import NavigationPanel from './components/NavigationPanel.vue'
+export default {
+  name: "App",
+  components: {NavigationPanel}
+}
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import (css) url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import (css) url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import (css) url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url('assets/style.less');
+body {
+  margin: 0;
+}
+.router {
+  height: calc(~"100vh - 46px");
+  margin-top: 46px;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.navigation {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
+
 </style>
