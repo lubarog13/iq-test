@@ -1,3 +1,17 @@
+<template>
+    <button class="button" :disabled="disabled" :class="{'button_outline': outline}">
+        <slot></slot>
+    </button>
+</template>
+
+<script>
+    export default {
+        name: "BasicButton",
+        props: ["disabled", "outline"]
+    }
+</script>
+
+<style lang="less" scoped>
 button.button {
     width: 189px;
     height: 41px;
@@ -20,6 +34,7 @@ button.button {
     &:disabled {
         background: #DADADA;
         box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+        color: #8E8E8E;
     }
 
     &_outline {
@@ -34,3 +49,4 @@ button.button {
     }
 
 }
+</style>

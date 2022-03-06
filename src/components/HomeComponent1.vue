@@ -5,7 +5,7 @@
       <div class="brain_page__title__2">тест на<br />определение<br> IQ</div>
     </div>
     <div class="brain_page__content content">
-      <button class="content__button button">пройти тест</button>
+      <basic-button class="content__button">пройти тест</basic-button>
       <div class="content__text text-yellow">
         И получите рекомендации по развитию своего интеллекта
       </div>
@@ -17,7 +17,9 @@
 </template>
 
 <script>
+import BasicButton from './UI/BasicButton.vue';
 export default {
+  components: { BasicButton },
   name: "HomeComponent1",
 };
 </script>

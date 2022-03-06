@@ -8,12 +8,14 @@
         <div class="test_info__content">
             Профессиональная интерпретация и детально <b>проработанные рекомендации</b> позволят вам качественно <b>изменить все аспекты своей жизни</b> от финансового до любовного.
         </div>
-        <button class="test_info__button button button_outline">пройти тест</button>
+        <basic-button class="test_info__button" :outline="true">пройти тест</basic-button>
     </div>
 </template>
 
 <script>
+import BasicButton from './UI/BasicButton.vue'
     export default {
+  components: { BasicButton },
         name: "HomeComponent4"
     }
 </script>

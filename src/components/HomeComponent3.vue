@@ -7,12 +7,14 @@
             которая принесет вам скорейший финансовый результат.
         </div>
         <img class="activity_result__image" src="../assets/images/325-01.png">
-        <button class="activity_result__button button">пройти тест</button>
+        <basic-button class="activity_result__button">пройти тест</basic-button>
     </div>
 </template>
 
 <script>
+import BasicButton from './UI/BasicButton.vue'
     export default {
+  components: { BasicButton },
         name: "HomeComponent3"
     }
 </script>
