@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     showNavigationTitle: false,
+    title: "",
     selectedValues:[],
     questions: [
       {
@@ -319,6 +320,7 @@ export default createStore({
           },
         ],
         image: "imagestar.png",
+        decoration: true,
         type: "row"
       },
     ],
@@ -327,11 +329,13 @@ export default createStore({
     setSelectedValue(state, value) {
       state.selectedValues.push(value)
     },
-    setShowTitle(state) {
-      state.showNavigationTitle = !state.showNavigationTitle
+    setShowTitle(state, show) {
+      state.showNavigationTitle = show
+    },
+    setTitle(state, title) {
+      state.title = title
     }
   },
-  actions: {},
   getters: {
     getQuestion: (state) => ({id}) => {
       return state.questions.filter(question => question.id == id)[0]

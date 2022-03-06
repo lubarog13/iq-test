@@ -1,0 +1,40 @@
+<template>
+  <div
+    class="row_form"
+    :style="{ 'grid-template-columns': `repeat(${values.length}, 1fr)` }"
+  >
+    <row-item
+      class="row_form__item"
+      v-for="value in values"
+      :key="value.id"
+      :selected="modelValue"
+      :value="value"
+      @click="select(value.id)"
+    />
+  </div>
+</template>
+
+<script>
+import SelectFormMixin from "../mixins/SelectFormMixin";
+import RowItem from "./UI/RowItem.vue";
+export default {
+  components: { RowItem },
+  name: "RowForm",
+  props: ["values"],
+  mixins: [SelectFormMixin],
+};
+</script>
+
+<style lang="less" scoped>
+.row_form {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  height: 63px;
+  max-width: 600px;
+
+  &__item {
+      margin: auto;
+  }
+}
+</style>0.75

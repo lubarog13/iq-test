@@ -21,6 +21,8 @@ body {
 .router {
   height: calc(~"100vh - 46px");
   margin-top: 46px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .navigation {

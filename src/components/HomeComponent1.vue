@@ -5,7 +5,7 @@
       <div class="brain_page__title__2">тест на<br />определение<br> IQ</div>
     </div>
     <div class="brain_page__content content">
-      <basic-button class="content__button">пройти тест</basic-button>
+      <router-link :to="{ name: 'TestForm', params: { id: 1 } }"> <basic-button class="content__button">пройти тест</basic-button></router-link>
       <div class="content__text text-yellow">
         И получите рекомендации по развитию своего интеллекта
       </div>

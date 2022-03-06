@@ -22,18 +22,25 @@ import HomeComponent1 from '../components/HomeComponent1.vue'
 import HomeComponent2 from '../components/HomeComponent2.vue'
 import HomeComponent3 from '../components/HomeComponent3.vue'
 import HomeComponent4 from '../components/HomeComponent4.vue'
+import { mapMutations} from 'vuex'
 // @ is an alias to /src
 
 export default {
   components: { HomeComponent1, HomeComponent2, HomeComponent3, HomeComponent4 },
   name: 'Home',
+  methods: {
+    ...mapMutations({
+          setShowTitle: 'setShowTitle',
+      }),
+  },
+  mounted() {
+    this.setShowTitle(false)
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .home {
-  overflow-y: auto;
-  overflow-x: hidden;
   &__more {
     position: fixed;
     bottom: 13px;

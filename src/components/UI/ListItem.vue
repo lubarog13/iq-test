@@ -18,11 +18,6 @@ import SelectItemMixin from "/src/mixins/SelectItemMixin"
                 return this.small_font && this.value.text.length>30
             }
         },
-        watch: {
-            modelValue(newVal) {
-                console.log(newVal)
-            }
-        }
     }
 </script>
 
@@ -30,6 +25,7 @@ import SelectItemMixin from "/src/mixins/SelectItemMixin"
     .list_item {
         width: 100%;
         font-family: "PT Serif";
+        cursor: pointer;
         font-size: 18px;
         display: flex;
         align-items: center;

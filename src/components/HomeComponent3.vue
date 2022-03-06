@@ -7,7 +7,7 @@
             которая принесет вам скорейший финансовый результат.
         </div>
         <img class="activity_result__image" src="../assets/images/325-01.png">
-        <basic-button class="activity_result__button">пройти тест</basic-button>
+        <router-link :to="{ name: 'TestForm', params: { id: 1 } }"> <basic-button class="activity_result__button">пройти тест</basic-button></router-link>
     </div>
 </template>
 

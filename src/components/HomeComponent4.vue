@@ -8,7 +8,7 @@
         <div class="test_info__content">
             Профессиональная интерпретация и детально <b>проработанные рекомендации</b> позволят вам качественно <b>изменить все аспекты своей жизни</b> от финансового до любовного.
         </div>
-        <basic-button class="test_info__button" :outline="true">пройти тест</basic-button>
+        <router-link  class="test_info__button" :to="{ name: 'TestForm', params: { id: 1 } }"> <basic-button :outline="true">пройти тест</basic-button></router-link>
     </div>
 </template>
 
