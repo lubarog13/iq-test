@@ -34,6 +34,10 @@ export default {
   justify-content: space-between;
   text-align: center;
 
+  @media(min-width: 600px) {
+    background-position: center;
+  }
+
   &__title {
     &__1 {
         margin-top: 27px;

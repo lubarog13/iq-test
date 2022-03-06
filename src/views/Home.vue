@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <home-component-1 />
-    <home-component-2 />
-    <home-component-3 />
+    <div class="home__flex">
+    <home-component-2 class="home__flex__col1"/>
+    <home-component-3 class="home__flex__col12"/>
+    </div>
     <home-component-4 />
     <div class="home__more">
       <button class="home__more__button">
@@ -66,6 +68,14 @@ export default {
       text-align: center;
       letter-spacing: 0.05em;
       margin-top: 3px;
+    }
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: row;
+    @media(max-width: 900px){
+      flex-direction: column; 
     }
   }
 }

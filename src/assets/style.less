@@ -13,6 +13,10 @@ button.button {
     color: #0D0C11;
     background: radial-gradient(50% 50% at 50% 50%, #FFC700 0%, #FFC700 100%);
 
+    &:hover {
+        background: radial-gradient(50% 50% at 50% 50%, #ddad01 0%, #ddad01  100%);
+    }
+
     &:disabled {
         background: #DADADA;
         box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -22,6 +26,11 @@ button.button {
         background: transparent;
         border: 1px solid #FFFFFF;
         color: white;
+
+        &:hover {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.7);
+        }
     }
 
 }
