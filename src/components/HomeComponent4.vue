@@ -42,6 +42,7 @@ import BasicButton from './UI/BasicButton.vue'
             left: -63.03px;
             bottom: 63.03px;
             position: absolute;
+            z-index: -1;
             width: 165px;
             height: 165px;
         }
@@ -51,6 +52,7 @@ import BasicButton from './UI/BasicButton.vue'
             right: -60.74px;
             top: 88.74px;
             position: absolute;
+            z-index: -1;
             width: 165px;
             height: 165px;
         }

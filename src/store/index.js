@@ -1,10 +1,11 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 export default createStore({
   state: {
     showNavigationTitle: false,
     title: "",
-    selectedValues:[],
+    selectedValues: [],
     questions: [
       {
         id: 1,
@@ -44,7 +45,7 @@ export default createStore({
           },
         ],
         image: null,
-        type: "list"
+        type: "list",
       },
       {
         id: 3,
@@ -68,11 +69,11 @@ export default createStore({
           },
           {
             id: 5,
-            text: "Хижина"
-          }
+            text: "Хижина",
+          },
         ],
         image: null,
-        type: "list"
+        type: "list",
       },
       {
         id: 4,
@@ -96,15 +97,15 @@ export default createStore({
           },
           {
             id: 5,
-            text: "60"
+            text: "60",
           },
           {
             id: 6,
-            text: "77"
-          }
+            text: "77",
+          },
         ],
         image: null,
-        type: "list"
+        type: "list",
       },
       {
         id: 5,
@@ -128,11 +129,11 @@ export default createStore({
           },
           {
             id: 5,
-            text: "#FDFF19"
+            text: "#FDFF19",
           },
           {
             id: 6,
-            text: "#A95403"
+            text: "#A95403",
           },
           {
             id: 7,
@@ -140,19 +141,20 @@ export default createStore({
           },
           {
             id: 8,
-            text: "#850068"
+            text: "#850068",
           },
           {
             id: 9,
-            text: "#46B2AC"
+            text: "#46B2AC",
           },
         ],
         image: null,
-        type: "grid"
+        type: "grid",
       },
       {
         id: 6,
-        title: "Отдохните пару секунд, еще раз Выберите цвет, который сейчас наиболее Вам приятен:",
+        title:
+          "Отдохните пару секунд, еще раз Выберите цвет, который сейчас наиболее Вам приятен:",
         options: [
           {
             id: 1,
@@ -160,11 +162,11 @@ export default createStore({
           },
           {
             id: 9,
-            text: "#46B2AC"
+            text: "#46B2AC",
           },
           {
             id: 6,
-            text: "#A95403"
+            text: "#A95403",
           },
           {
             id: 3,
@@ -180,11 +182,11 @@ export default createStore({
           },
           {
             id: 8,
-            text: "#850068"
+            text: "#850068",
           },
           {
             id: 5,
-            text: "#FDFF19"
+            text: "#FDFF19",
           },
           {
             id: 2,
@@ -192,7 +194,7 @@ export default createStore({
           },
         ],
         image: null,
-        type: "grid"
+        type: "grid",
       },
       {
         id: 7,
@@ -216,15 +218,15 @@ export default createStore({
           },
           {
             id: 5,
-            text: "Москва"
+            text: "Москва",
           },
           {
             id: 6,
-            text: "Оттава"
-          }
+            text: "Оттава",
+          },
         ],
         image: null,
-        type: "list"
+        type: "list",
       },
       {
         id: 8,
@@ -248,7 +250,7 @@ export default createStore({
           },
         ],
         image: "imagefigure.png",
-        type: "row"
+        type: "row",
       },
       {
         id: 9,
@@ -268,11 +270,12 @@ export default createStore({
           },
         ],
         image: null,
-        type: "list"
+        type: "list",
       },
       {
         id: 10,
-        title: "Какое определение, по-Вашему, больше подходит к этому геометрическому изображению: ",
+        title:
+          "Какое определение, по-Вашему, больше подходит к этому геометрическому изображению: ",
         options: [
           {
             id: 1,
@@ -288,7 +291,7 @@ export default createStore({
           },
         ],
         image: "imagepyramid.png",
-        type: "list"
+        type: "list",
       },
       {
         id: 11,
@@ -308,7 +311,7 @@ export default createStore({
           },
           {
             id: 4,
-            text: "44"
+            text: "44",
           },
           {
             id: 5,
@@ -321,31 +324,60 @@ export default createStore({
         ],
         image: "imagestar.png",
         decoration: true,
-        type: "row"
+        type: "row",
       },
     ],
+    result_main: "<u>Вы относитесь к 3%</u> респондентов, чей уровень интеллекта более чем на 15 пунктов отличается от среднего в большую или меньшую сторону! ",
+    result: null,
   },
   mutations: {
     setSelectedValue(state, value) {
-      state.selectedValues.push(value)
+      state.selectedValues.push(value);
     },
     setShowTitle(state, show) {
-      state.showNavigationTitle = show
+      state.showNavigationTitle = show;
     },
     setTitle(state, title) {
-      state.title = title
-    }
+      state.title = title;
+    },
+    setResult(state, payload) {
+      state.result = payload;
+    },
   },
   getters: {
-    getQuestion: (state) => ({id}) => {
-      return state.questions.filter(question => question.id == id)[0]
-    },
+    getQuestion:
+      (state) =>
+      ({ id }) => {
+        const questions = state.questions.filter(
+          (question) => question.id == id
+        );
+        return questions.length >= 0 ? questions[0] : null;
+      },
     getQuestionLength(state) {
-      return state.questions.length
+      return state.questions.length;
     },
-    getProgress: (state, getters) => ({id}) => {
-      const index = state.questions.map(function(x) {return x.id; }).indexOf(id) + 1
-      return index / getters.getQuestionLength * 100 
-    }
-  }
+    getProgress:
+      (state, getters) =>
+      ({ id }) => {
+        const index =
+          state.questions
+            .map(function (x) {
+              return x.id;
+            })
+            .indexOf(id) + 1;
+        return (index / getters.getQuestionLength) * 100;
+      },
+  },
+  actions: {
+    async fetchResult({ commit }) {
+      return axios
+        .get("https://swapi.dev/api/people/1/")
+        .then((res) => {
+          commit("setResult", res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 });

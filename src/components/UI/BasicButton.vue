@@ -19,6 +19,7 @@ button.button {
     border-radius: 20px;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
     line-height: 18px;
     border: none;
     text-align: center;

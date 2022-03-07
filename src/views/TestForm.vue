@@ -72,15 +72,12 @@ export default {
   computed: {
     ...mapGetters({
         getQuestion: 'getQuestion',
-        getQuestionLength: 'getQuestionLength',
+        qLength: 'getQuestionLength',
         getProgress: 'getProgress'
     }),
     question() {
       const { id } = this.$route.params;
       return this.getQuestion({ id: id });
-    },
-    qLength() {
-      return this.getQuestionLength();
     },
     progress() {
       return this.getProgress({ id: this.question.id });
@@ -104,6 +101,8 @@ export default {
       if (this.qLength !== next_id - 1) {
         this.selectedValue = null;
         this.$router.push({ name: "TestForm", params: { id: next_id } });
+      } else {
+          this.$router.push({name: 'LoadingPage'})
       }
     },
   },
@@ -118,7 +117,6 @@ export default {
 .test_form {
   background: url(../assets/images/rain_bk2.png);
   box-shadow: inset 0 0 0 1000px rgba(13, 12, 17, 0.728);
-  position: sticky;
   display: flex;
   flex-direction: column;
   align-items: center;

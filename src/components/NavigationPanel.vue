@@ -4,7 +4,7 @@
             <img src="../assets/icons/menu.svg">
         </div>
         <img v-if="showTitle" class="navigation__logo" src="../assets/images/rain_bk3.png">
-        <div v-if="showTitle" class="navigation__title">{{title}}</div>
+        <div v-if="showTitle" class="navigation__title" :class="{'navigation__title-big': title.length<20}">{{title}}</div>
     </div>
 </template>
 
@@ -45,6 +45,11 @@ import {mapState} from 'vuex'
             font-size: 12px;
             text-transform: uppercase;
             color: #FFC700;
+
+            &-big {
+                font-size: 20px;
+                white-space: pre;
+            }
         }
     }
 

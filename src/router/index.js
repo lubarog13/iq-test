@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import LoadingPage from '../views/LoadingPage.vue'
+import ResultPage from '../views/ResultPage.vue'
 
 const routes = [
   {
@@ -11,6 +13,16 @@ const routes = [
     path: '/test/page/:id',
     name: 'TestForm',
     component: () => import('../views/TestForm.vue')
+  },
+  {
+    path: '/test/loading/',
+    name: 'LoadingPage',
+    component: LoadingPage
+  },
+  {
+    path: '/test/result',
+    name: 'ResultPage',
+    component: ResultPage
   }
 ]
 
