@@ -25,7 +25,6 @@ export default {
 <style lang="less" scoped>
 .brain_page {
   background: top url("../assets/images/rain_bk.png");
-  background-size: cover;
   height:  calc(~"100vh - 46px");
   display: flex;
   padding: 0 17px;
@@ -37,6 +36,7 @@ export default {
   @media(min-width: 600px) {
     background-position: center;
   }
+  
 
   &__title {
     &__1 {
