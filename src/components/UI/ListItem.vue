@@ -11,7 +11,7 @@
 import SelectItemMixin from "/src/mixins/SelectItemMixin"
     export default {
         name: "ListItem",
-        props: ["value", "small_font"],
+        props: [ "small_font"],
         mixins: [SelectItemMixin],
         computed: {
             small() {

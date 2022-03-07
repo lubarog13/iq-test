@@ -57,12 +57,10 @@
 <script>
 import ListForm from "../components/ListForm.vue";
 import GridForm from "../components/GridForm.vue";
-import BasicButton from "../components/UI/BasicButton.vue";
-import CustomProgressBar from "../components/UI/CustomProgressBar.vue";
 import RowForm from "../components/RowForm.vue";
 import {mapGetters, mapMutations} from 'vuex'
 export default {
-  components: { CustomProgressBar, ListForm, BasicButton, GridForm, RowForm },
+  components: {  ListForm, GridForm, RowForm },
   name: "TestForm",
   data() {
     return {

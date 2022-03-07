@@ -8,7 +8,6 @@
     import SelectItemMixin from "/src/mixins/SelectItemMixin"
     export default {
         name: "ListItem",
-        props: ["value"],
         mixins: [SelectItemMixin],
     }
 </script>

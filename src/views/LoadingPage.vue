@@ -22,10 +22,18 @@ import CustomProgressBar from "../components/UI/CustomProgressBar.vue";
 export default {
   components: { CustomProgressBar },
   name: "LoadingPage",
+  data() {
+    return {
+      timer: null
+    }
+  },
   mounted() {
-      setInterval(() => {
+      this.timer = setInterval(() => {
           this.$router.push({name: 'ResultPage'})
       }, 5000)
+  },
+  unmounted() {
+    clearTimeout(this.timer)
   }
 };
 </script>

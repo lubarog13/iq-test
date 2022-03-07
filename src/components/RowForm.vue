@@ -20,7 +20,6 @@ import RowItem from "./UI/RowItem.vue";
 export default {
   components: { RowItem },
   name: "RowForm",
-  props: ["values"],
   mixins: [SelectFormMixin],
 };
 </script>

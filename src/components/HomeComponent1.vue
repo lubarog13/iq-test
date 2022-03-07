@@ -17,9 +17,7 @@
 </template>
 
 <script>
-import BasicButton from './UI/BasicButton.vue';
 export default {
-  components: { BasicButton },
   name: "HomeComponent1",
 };
 </script>

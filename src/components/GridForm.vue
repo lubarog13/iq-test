@@ -16,8 +16,7 @@ import SelectFormMixin from "../mixins/SelectFormMixin";
 import GridItem from "./UI/GridItem.vue";
 export default {
   components: { GridItem },
-  name: "ListForm",
-  props: ["values",],
+  name: "GridForm",
   mixins: [SelectFormMixin],
 };
 </script>

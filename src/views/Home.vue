@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <home-component-1 />
+    <home-component-1 id="main" ref="main" v-intersection="showButton"/>
     <div class="home__flex">
-    <home-component-2 class="home__flex__col1"/>
+    <home-component-2 id="info" class="home__flex__col1"/>
     <home-component-3 class="home__flex__col12"/>
     </div>
-    <home-component-4 />
-    <div class="home__more">
+    <home-component-4/>
+    <a href="#info" class="home__more" ref="more_button">
       <button class="home__more__button">
         <img src="../assets/icons/arrow.svg">
       </button>
       <div class="home__more__text">
         Подробнее
       </div>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -32,6 +32,9 @@ export default {
     ...mapMutations({
           setShowTitle: 'setShowTitle',
       }),
+      showButton() {
+        this.$refs.more_button.style.visibility="visible"
+      }
   },
   mounted() {
     this.setShowTitle(false)
@@ -73,6 +76,7 @@ export default {
       font-size: 8px;
       line-height: 11px;
       text-align: center;
+      text-decoration: none;
       letter-spacing: 0.05em;
       margin-top: 3px;
     }

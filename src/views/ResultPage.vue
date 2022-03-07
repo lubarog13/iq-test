@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="result_page__footer-show" ref="observer" />
-    <div class="result_page__footer" ref="bottom">
+    <div class="result_page__footer" ref="bottom" v-intersection="showFooter" v-unintersection="hideFooter">
       TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN
       FOLOSIREA LUI DECLARATI CA AVETI 18 ANI IMPLINITI,
     </div>
@@ -61,8 +61,8 @@ export default {
   },
   computed: {
     ...mapState({
-      result_main: (state) => state.result_main,
-      result: (state) => state.result,
+      result_main: (state) => state.results.result_main,
+      result: (state) => state.results.result,
     }),
     time() {
       let minutes = Math.floor(this.currentTime / 60);
@@ -78,9 +78,10 @@ export default {
     ...mapMutations({
       setTitle: "setTitle",
       setShowTitle: "setShowTitle",
+      setResult: "results/setResult"
     }),
     ...mapActions({
-      fetchResult: "fetchResult",
+      fetchResult: "results/fetchResult",
     }),
     startTimer() {
       this.timer = setInterval(() => {
@@ -93,6 +94,13 @@ export default {
     str_pad_left(string, pad, length) {
       return (new Array(length + 1).join(pad) + string).slice(-length);
     },
+    hideFooter() {
+      this.$refs.bottom.style.bottom = '-11px'
+    },
+    showFooter() {
+      this.$refs.bottom.style.bottom = 0
+    }
+
   },
   watch: {
     currentTime(time) {
@@ -104,23 +112,11 @@ export default {
   mounted() {
     this.startTimer();
     this.setTitle("   ГОТОВО!");
-    this.setShowTitle(true);
-    const options = {
-      root: document.querySelector("#scrollArea"),
-      rootMargin: "0px",
-      threshold: 1.0,
-    };
-    const callback = (entries) => {
-      if (entries[0].isIntersecting) {
-        this.$refs.bottom.style.bottom = 0
-      } else {
-          this.$refs.bottom.style.bottom = '-11px'
-      }
-    };
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(this.$refs.observer);
+    console.log(this.result)
+    this.setShowTitle(true)
   },
   beforeUnmount() {
+    this.setResult(null)
     this.stopTimer();
   },
 };
@@ -263,6 +259,7 @@ export default {
 
     &__line {
       display: flex;
+      width: 100%;
       justify-content: space-between;
     }
   }

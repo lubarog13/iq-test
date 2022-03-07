@@ -9,13 +9,13 @@
             Профессиональная интерпретация и детально <b>проработанные рекомендации</b> позволят вам качественно <b>изменить все аспекты своей жизни</b> от финансового до любовного.
         </div>
         <router-link  class="test_info__button" :to="{ name: 'TestForm', params: { id: 1 } }"> <basic-button :outline="true">пройти тест</basic-button></router-link>
+        <div class="test_info__copyright">&copy; 2019</div>
+        
     </div>
 </template>
 
 <script>
-import BasicButton from './UI/BasicButton.vue'
     export default {
-  components: { BasicButton },
         name: "HomeComponent4"
     }
 </script>
@@ -98,6 +98,18 @@ import BasicButton from './UI/BasicButton.vue'
         @media(min-width: 750px) {
             margin: 0 25px;
         }
+    }
+
+    &__copyright {
+        position: absolute;
+        bottom: 13px;
+        font-family: "Roboto";
+        font-size: 10px;
+        line-height: 23px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        width: 44px;
+        left: calc(~"50% - 22px");;
     }
 }
 </style>

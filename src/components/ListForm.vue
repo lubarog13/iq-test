@@ -19,7 +19,7 @@ import ListItem from "./UI/ListItem.vue";
 export default {
   components: { ListItem },
   name: "ListForm",
-  props: ["values", "imaged"],
+  props: [ "imaged"],
   mixins: [SelectFormMixin],
   computed: {
     smallRow() {

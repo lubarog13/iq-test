@@ -10,7 +10,6 @@
 import SelectItemMixin from "/src/mixins/SelectItemMixin"
     export default {
         name: "GridItem",
-        props: ["value"],
         mixins: [SelectItemMixin]
     }
 </script>

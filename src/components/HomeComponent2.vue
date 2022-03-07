@@ -1,6 +1,6 @@
 <template>
     <div class="iq_info">
-      <img class="iq_info__quote quote-left" src="../assets/icons/1quote.svg" />
+      <img class="iq_info__quote quote-left" src="../assets/icons/1quote.svg" v-intersection="hideButton" />
       <div class="iq_info__message">
         Профессиональный IQ-тест позволяет не только определить коэффициент
         вашего интеллекта,<br />
@@ -16,6 +16,11 @@
 <script>
 export default {
   name: "HomeComponent2",
+  methods: {
+    hideButton() {
+        this.$parent.$refs.more_button.style.visibility="hidden"
+      },
+  }
 };
 </script>
 
