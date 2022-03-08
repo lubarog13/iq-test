@@ -36,6 +36,12 @@
         justify-content: center;
     }
 
+    @media(max-height: 500px) {
+        flex-direction: row;
+        height: fit-content;
+        justify-content: center;
+    }
+
     &__decoration {
         &-left {
             transform: rotate(-31.55deg);
@@ -90,12 +96,19 @@
             margin-left: 25px;
             margin-bottom: 25px;
         }
+        @media(max-height: 500px) {
+            margin-left: 25px;
+            margin-bottom: 25px;
+        }
     }
 
     &__button {
         align-self: center;
         margin-top: 33px;
         @media(min-width: 750px) {
+            margin: 0 25px;
+        }
+         @media(max-height: 500px) {
             margin: 0 25px;
         }
     }

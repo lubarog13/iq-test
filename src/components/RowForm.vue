@@ -26,10 +26,10 @@ export default {
 
 <style lang="less" scoped>
 .row_form {
-  display: grid;
+  display: flex;
   justify-content: center;
   width: 100%;
-  height: 63px;
+  min-height: 63px;
   max-width: 600px;
 
   &__item {

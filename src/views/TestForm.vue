@@ -165,6 +165,7 @@ export default {
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 4.4%;
+    margin-top: 10px;
   }
 
   .spacer {

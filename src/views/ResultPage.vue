@@ -22,10 +22,11 @@
     </div>
     <button
       :disabled="currentTime == 0"
+      @click="fetchResult"
       class="result_page__call_button call_button"
     >
       <img src="../assets/icons/call.svg" />
-      <div class="call_button__text" @click="fetchResult">
+      <div class="call_button__text">
         Позвонить и прослушать результат
       </div>
     </button>
@@ -41,8 +42,8 @@
         <b>Дата рождения:</b><span>{{ result.birth_year }}</span>
       </div>
     </div>
-    <div class="result_page__footer-show" ref="observer" />
-    <div class="result_page__footer" ref="bottom" v-intersection="showFooter" v-unintersection="hideFooter">
+    <div class="result_page__footer-show" v-intersection="showFooter" v-unintersection="hideFooter"/>
+    <div class="result_page__footer" ref="bottom" >
       TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN
       FOLOSIREA LUI DECLARATI CA AVETI 18 ANI IMPLINITI,
     </div>
@@ -227,6 +228,7 @@ export default {
     color: white;
     padding: 31px 22px 25px 15px;
     border: none;
+    margin-bottom: 24px;
 
     &__text {
       font-family: "Roboto";
@@ -240,16 +242,19 @@ export default {
     &:hover {
       background: #af1500;
     }
-  }
 
-  &__result_content {
-    margin-top: 24px;
+    &:disabled {
+      background: #DADADA;
+        box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+        color: #8E8E8E;
+    }
   }
 
   .result_content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 24px;
 
     &__name {
       font-size: 24px;

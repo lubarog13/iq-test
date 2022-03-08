@@ -84,9 +84,9 @@ export default {
 
   &__flex {
     display: flex;
-    flex-direction: row;
-    @media(max-width: 900px){
-      flex-direction: column; 
+    flex-direction: column; 
+    @media(min-width: 900px){
+      flex-direction: row; 
     }
   }
 }
